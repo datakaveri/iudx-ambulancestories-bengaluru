@@ -17,7 +17,7 @@ on:
 jobs:
   dev:
     if: ${{ github.ref == 'refs/heads/dev' }}
-    uses: sirpi-io/bengaluru-data-stories/.github/workflows/version.yaml@dev
+    uses: sirpi-io/bengaluru-data-stories/.github/workflows/version.yml@dev
     with:
       env: 'dev'
       image: 'iudx-bengaluru-datastories'
@@ -25,7 +25,7 @@ jobs:
     secrets: inherit
   beta:
     if: ${{ github.ref == 'refs/heads/beta' }}
-    uses: sirpi-io/gvd-frontend/.github/workflows/version.yaml@beta
+    uses: sirpi-io/bengaluru-data-stories/.github/workflows/version.yml@beta
     with:
       env: 'beta'
       image: 'iudx-bengaluru-datastories'
@@ -33,7 +33,7 @@ jobs:
     secrets: inherit
   prod:
     if: ${{ github.ref == 'refs/heads/prod' }}
-    uses: sirpi-io/gvd-frontend/.github/workflows/version.yaml@prod
+    uses: sirpi-io/bengaluru-data-stories/.github/workflows/version.yml@prod
     with:
       env: 'prod'
       image: 'iudx-bengaluru-datastories'
