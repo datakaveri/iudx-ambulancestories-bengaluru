@@ -17,7 +17,7 @@ on:
 jobs:
   dev:
     if: ${{ github.ref == 'refs/heads/dev' }}
-    uses: sirpi-io/bengaluru-data-stories/.github/workflows/versions.yaml@dev
+    uses: sirpi-io/bengaluru-data-stories/.github/workflows/versions.yml@dev
     with:
       env: 'dev'
       image: 'iudx-bengaluru-datastories'
