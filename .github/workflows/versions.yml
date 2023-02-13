@@ -1,0 +1,150 @@
+name: Trigger ArgoCD Deployment (Automated)
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+    branches: [master]
+#add env
+env:
+  USERNAME: ${{ secrets.DOCKERUSERNAME }}
+  PASSWORD: ${{ secrets.DOCKERPASSWORD }}
+  GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+  ARGO_PASS: ${{ secrets.ARGO_PASS }}
+  ARGO_URL: ${{ secrets.ARGO_URL }}
+  IMAGE_NAME: "iudx-chandigarh-datastories"
+  VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
+  ENV: "prod"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.7]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Setup Vault CLI
+        uses: eLco/setup-vault@v1.0.2
+
+      - name: Install Dependencies
+        id: activating
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Lint with flake8
+        id: linting
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+      - name: Release new version
+        id: versioning
+        run: |
+          git config --global user.email "devops@sirpi.io"
+          git config --global user.name "devops1-sirpi"    
+          if [[ $ENV =  "dev" ]]; then
+            vault kv get -address="https://vault.sirpi.co.in" -field=script kv/devops/version-control > change.py
+            python -m change
+            rm change.py
+          else
+            echo "Releasing $ENV Version" 
+          fi
+          VAR=$(cat version.txt)
+          VAR=${VAR:1}
+          echo "$VAR"
+          if [[ $ENV =  "dev" ]]; then
+            git add .
+            git commit -m "Version v$VAR released"
+            git push -f
+          else
+            echo "Ignoring Push" 
+          fi
+          if [[ $ENV =  "prod" ]]; then
+            echo "VERSION=$VAR" >> $GITHUB_OUTPUT
+          else
+            echo "VERSION=$VAR-$ENV" >> $GITHUB_OUTPUT
+          fi
+
+    outputs:
+      output1: ${{ steps.versioning.outputs.VERSION }}
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: [build]
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.7]
+    env:
+      VERSION: ${{ needs.build.outputs.output1 }}
+    steps:
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Setup Vault CLI
+        uses: eLco/setup-vault@v1.0.2
+
+      - name: Argo CD Action
+        uses: clowdhaus/argo-cd-action/@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEVOPS_TOKEN }}
+        with:
+          command: version
+          options: --client
+
+      - name: docker push
+        run: |
+          git config --global user.email "devops@sirpi.io"
+          git config --global user.name "devops1-sirpi"    
+          git clone --branch master https://devops1-sirpi:$GIT_TOKEN@github.com/sirpi-io/chandigarh-iudx-data-stories.git code
+          cd code 
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          vault login -address="https://vault.sirpi.co.in" $VAULT_TOKEN
+          vault kv get -address="https://vault.sirpi.co.in" -field=datastories-dockerfile kv/projects/iudx > Dockerfile
+          echo "$PASSWORD" | docker login -u $USERNAME --password-stdin
+          docker build --no-cache --network=host --file Dockerfile --tag sirpi/$IMAGE_NAME:$VERSION .
+          docker push sirpi/$IMAGE_NAME:$VERSION
+
+      - name: Helming charts
+        run: |
+          vault login -address="https://vault.sirpi.co.in" $VAULT_TOKEN
+          vault kv get -address="https://vault.sirpi.co.in" -field=charts kv/devops/version-control > Charts.yaml
+          vault kv get -address="https://vault.sirpi.co.in" -field=bash kv/devops/version-control > create_charts.sh
+          bash create_charts.sh
+          git clone --branch prod https://devops1-sirpi:$GIT_TOKEN@github.com/sirpi-io/gitops.git helmfiles
+          cp Chart.yaml helmfiles/charts/iudx-chandigarh-datastories/Chart.yaml
+          cd helmfiles
+          git add .
+          git commit -m "Charts updated with newer release $VERSION"
+          git push -f
+
+      - name: Trigger ArgoCD pipeline
+        run: |
+          argocd login $ARGO_URL --username admin --password $ARGO_PASS
+          argocd app create $IMAGE_NAME-$ENV \
+          --repo 'git@github.com:sirpi-io/gitops.git' \
+          --path charts/iudx-chandigarh-datastories \
+          --dest-server 'https://kubernetes.default.svc' \
+          --dest-namespace default \
+          --sync-policy automated \
+          --revision prod \
+          --auto-prune \
+          --upsert
+          argocd app sync $IMAGE_NAME-$ENV --async --force --prune || true
