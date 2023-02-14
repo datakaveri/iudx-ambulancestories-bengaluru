@@ -100,7 +100,7 @@ img.heroimg {
 }
 
 #herobg {
-	background-image: url("/assets/images/hospital\ background.svg");
+	background-image: url("/assets/images/hospital_background.png");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -146,7 +146,7 @@ img.img-popout {
 }
 
 #section1 {
-	background-image: url("/assets/images/CHNDGRH_MAP_BG.png");
+	background-image: url("/assets/images/bengaluru_bg_map.png");
 	width: 100%;
 	background-size: cover;
 	background-repeat: no-repeat;
