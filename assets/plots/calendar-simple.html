@@ -39,10 +39,10 @@
     var option;
 
     function getVirtualData(year) {
-      let date = +echarts.time.parse(year + '-12-01');
-      const end = +echarts.time.parse(year + '-12-31');
+      let date = +echarts.time.parse(year + '-02-01');
+      const end = +echarts.time.parse(year + '-02-28');
       const dayTime = 3600 * 24 * 1000;
-      const data = ["596.7", "670.5", "579.9", "553", "768.5", "965.2", "735.7", "526.2", "850.9", "686.9", "575.2", "912", "738.3", "994.5", "766.4", "701.4", "812.7", "572.2", "774.7", "789.5", "691.8", "686.9", "571.4", "", "", "676.8", "627.9", "770.9", "466", "630.2", "0"];
+      const data = ["0", "0", "0", "0", "0", "2521.9", "3977.3", "3381.3", "3755.2", "4195.6", "3378.5", "3148.1", "21641.6", "3515.2", "3703.4", "12672.7", "3424.7", "2525.2", "3012.1", "3394.3", "20712.4", "0", "0", "0", "0", "0", "0", "0"];
       let it = 0;
       for (let time = date; time <= end; time += dayTime) {
         let items = [];
@@ -66,8 +66,8 @@
         position: 'top'
       },
       visualMap: {
-        min: 400,
-        max: 1000,
+        min: 2000,
+        max: 4000,
         calculable: true,
         orient: 'horizontal',
         bottom: '-10',
@@ -85,12 +85,12 @@
           margin: 20
         },
         cellSize: [40, 40],
-        range: '2022-12'
+        range: '2023-02'
       }],
       series: [{
         type: 'heatmap',
         coordinateSystem: 'calendar',
-        data: getVirtualData('2022'),
+        data: getVirtualData('2023'),
         label: {
           show: true
         }
