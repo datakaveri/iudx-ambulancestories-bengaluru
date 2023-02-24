@@ -1,6 +1,6 @@
 const ctx7 = document.getElementById('myChart7');
 
-let count = 30;
+let count = 28;
 let labels = [];
 for (let i = 1; i <= count; i++) {
   labels.push(i.toString());
@@ -12,7 +12,7 @@ new Chart(ctx7, {
     labels: labels,
     datasets: [{
       label: 'Active Ambulance Count',
-      data: ['14', '15', '15', '14', '15', '15', '15', '13', '14', '13', '13', '15', '15', '15', '15', '15', '14', '13', '15', '15', '15', '15', '15', '0', '0', '14', '14', '14', '14', '15', '1'],
+      data: ['0', '1', '0', '0', '1', '43', '43', '44', '44', '43', '44', '43', '43', '42', '43', '43', '43', '42', '43', '43', '42', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
       borderWidth: 2,
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
@@ -75,7 +75,7 @@ new Chart(ctx7, {
       x: {
         title: {
           display: true,
-          text: 'December 2022'
+          text: 'February 2023'
         },
         ticks: {
           autoSkip: false,
