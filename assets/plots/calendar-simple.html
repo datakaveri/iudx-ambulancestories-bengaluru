@@ -63,7 +63,10 @@
     }
     option = {
       tooltip: {
-        position: 'top'
+        position: 'top',
+        formatter: function (params) {
+          return 'Distance (Kms) : ' + params.value[1].toFixed(2);
+        }
       },
       visualMap: {
         min: 2000,
