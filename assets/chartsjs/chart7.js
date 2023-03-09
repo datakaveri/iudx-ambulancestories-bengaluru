@@ -5,6 +5,10 @@ let labels = [];
 for (let i = 1; i <= count; i++) {
   labels.push(i.toString());
 }
+const Title = (tooltipItems) => {
+  let date = tooltipItems[0].label+"/2/2023";
+  return date;
+};
 
 new Chart(ctx7, {
   type: 'bar',
@@ -63,6 +67,11 @@ new Chart(ctx7, {
           usePointStyle: false,
         },
       },
+      tooltip:{
+        callbacks:{
+          title:Title
+        }
+      }
     },
     interaction: {
       mode: 'nearest',
