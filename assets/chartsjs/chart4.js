@@ -22,7 +22,7 @@ new Chart(ctx4, {
         // labels: [''],
         datasets: [{
             label: 'Off Duty Hours',
-            data: ['1400'],
+            data: ['325'],
             borderWidth: 2,
             backgroundColor: ['#f75990'],
             borderColor: ['#f75990'],
@@ -31,7 +31,7 @@ new Chart(ctx4, {
 
         }, {
             label: 'On Duty Hours',
-            data: ['1951'],
+            data: ['158'],
             borderWidth: 2,
             backgroundColor: ['#00DDFF'],
             borderColor: ['#00DDFF'],
