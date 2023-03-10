@@ -560,6 +560,13 @@ img.img-popout {
 	#ambulancedatastories :nth-child(26) {
 		order: 26;
 	}
+	#ambulancedatastories :nth-child(27) {
+		order: 28;
+	}
+
+	#ambulancedatastories :nth-child(28) {
+		order: 27;
+	}
 }
 
 @media only screen and (max-width: 700px) {
