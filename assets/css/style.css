@@ -235,7 +235,7 @@ img.img-popout {
 	/* transition: all .5s; */
 	/* transform: scale(1.1); */
 	transform: scale(1.1);
-	-moz-transform: scale(1);
+	-moz-transform: scale(1.1);
 	transition-duration: 1s;
 }
 
