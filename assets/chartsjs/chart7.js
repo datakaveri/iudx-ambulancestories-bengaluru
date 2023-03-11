@@ -5,14 +5,18 @@ let labels = [];
 for (let i = 1; i <= count; i++) {
   labels.push(i.toString());
 }
+const Title = (tooltipItems) => {
+  let date = tooltipItems[0].label+"/2/2023";
+  return date;
+};
 
 new Chart(ctx7, {
   type: 'bar',
   data: {
     labels: labels,
     datasets: [{
-      label: 'Active Ambulance Count',
-      data: ['0', '1', '0', '0', '1', '43', '43', '44', '44', '43', '44', '43', '43', '42', '43', '43', '43', '42', '43', '43', '42', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
+      label: 'Active ambulance count',
+      data: ['0','1','0','0','1','43','43','44','44','43','44','43','43','42','43','43','43','42','43','43','42','43','43','42','42','42','42','42'],
       borderWidth: 2,
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
@@ -63,6 +67,11 @@ new Chart(ctx7, {
           usePointStyle: false,
         },
       },
+      tooltip:{
+        callbacks:{
+          title:Title
+        }
+      }
     },
     interaction: {
       mode: 'nearest',

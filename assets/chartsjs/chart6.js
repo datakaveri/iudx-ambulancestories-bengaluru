@@ -5,9 +5,9 @@ new Chart(ctx6, {
 	data: {
 		labels: ['Night (9PM-3AM)', 'Morning (3AM-9AM)', 'Afternoon (9AM-3PM)', 'Evening (3PM-9PM)'],
 		datasets: [{
-			data: [14, 14, 15, 15],
+			data: [44, 43, 44, 45],
 			borderWidth: 2,
-			backgroundColor: ['#e3eaf6', '#e3eaf6', '#ff0000', '#ff0000'],
+			backgroundColor: ['#e3eaf6', '#e3eaf6', '#e3eaf6', '#ff0000'],
 
 		}]
 	},
