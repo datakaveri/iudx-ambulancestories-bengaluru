@@ -41,7 +41,9 @@ new Chart(ctx4, {
         }]
     },
     options: {
-
+        layout:{
+            padding:2
+        },
         responsive: true,
 		maintainAspectRatio: true,
         plugins: {
