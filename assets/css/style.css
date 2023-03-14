@@ -235,7 +235,7 @@ img.img-popout {
 	/* transition: all .5s; */
 	/* transform: scale(1.1); */
 	transform: scale(1.1);
-	-moz-transform: scale(1);
+	-moz-transform: scale(1.1);
 	transition-duration: 1s;
 }
 
@@ -559,6 +559,13 @@ img.img-popout {
 
 	#ambulancedatastories :nth-child(26) {
 		order: 26;
+	}
+	#ambulancedatastories :nth-child(27) {
+		order: 28;
+	}
+
+	#ambulancedatastories :nth-child(28) {
+		order: 27;
 	}
 }
 

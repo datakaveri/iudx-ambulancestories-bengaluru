@@ -12,6 +12,9 @@ new Chart(ctx6, {
 		}]
 	},
 	options: {
+		layout:{
+			padding:2
+		},
 		plugins: {
 			legend: {
 				display: false
