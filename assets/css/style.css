@@ -238,6 +238,14 @@ img.img-popout {
 	-moz-transform: scale(1.1);
 	transition-duration: 1s;
 }
+#myChart7{
+	transition: all 3s;
+}
+#ambulancedatastories>div.storypopup:hover #myChart7{
+	transform: scale(1);
+	-moz-transform: scale(0.92);
+	transition: all 1s;
+}
 
 .numberpopup {
 	color: white;
