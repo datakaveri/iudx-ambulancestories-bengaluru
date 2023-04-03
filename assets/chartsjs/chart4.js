@@ -67,7 +67,6 @@ new Chart(ctx4, {
             intersect: false
         },
 
-        responsive: true,
         scales: {
             x: {
                 ticks: {
