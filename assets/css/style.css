@@ -32,9 +32,9 @@ img {
 	object-fit: contain;
 }
 
-inline {
+/* inline {
 	display: inline;
-}
+} */
 
 /* Navbar */
 
@@ -117,7 +117,6 @@ img.heroimg {
 	transform: translate(-50%, 50%);
 	/* left: calc(55% - 9.2rem); */
 	position: fixed;
-	z-index: 0;
 	opacity: 0;
 }
 
@@ -248,7 +247,6 @@ img.img-popout {
 }
 
 .numberpopup {
-	color: white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -257,16 +255,15 @@ img.img-popout {
 	background-position: center;
 	margin: auto;
 	padding: 0;
-	font-family: 'Poppins';
+	font-family: 'Poppins', sans-serif;
 	font-style: normal;
 	font-weight: 700;
-	font-size: 60px;
+	/* font-size: 60px; */
 	line-height: 90px;
 	/* identical to box height */
 
 	text-align: center;
 
-	color: #FFFFFF;
 
 	backdrop-filter: blur(1px);
 	/* Note: backdrop-filter has minimal browser support */
