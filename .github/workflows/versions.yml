@@ -117,6 +117,7 @@ jobs:
           git add .
           git commit -m "Charts updated with newer release $VERSION"
           git push -f
+          
            
        - name: Argo CD Action
          uses: clowdhaus/argo-cd-action@v1.9.0
