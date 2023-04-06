@@ -20,7 +20,7 @@ jobs:
     secrets: inherit
   beta:
     if: ${{ github.ref == 'refs/heads/beta' }}
-    uses: sirpi-io/bengaluru-data-stories/.github/workflows/version.yml@beta
+    uses: sirpi-io/bengaluru-data-stories/.github/workflows/versions.yml@beta
     with:
       env: 'beta'
       image: 'anandk'
@@ -28,7 +28,7 @@ jobs:
     secrets: inherit
   prod:
     if: ${{ github.ref == 'refs/heads/prod' }}
-    uses: sirpi-io/bengaluru-data-stories/.github/workflows/version.yml@prod
+    uses: sirpi-io/bengaluru-data-stories/.github/workflows/versions.yml@prod
     with:
       env: 'prod'
       image: 'anandk'
