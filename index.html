@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<title>IUDX Ambulance Data Stories</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- Magnific Popup core CSS file -->
+	<link rel="stylesheet" href="./assets/magnific-popup/magnific-popup.css">
+	<!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+	<!-- First page-->
+	<div id="herobg">
+
+		<!-- Nav bar-->
+		<div class="navbar font-bold topnav" id="topNavBar">
+			<img alt="IUDX logo" id="navlogo" src="assets/images/iudx_logo.svg">
+			<ul style="margin-right:5vw">
+				<li><a href="/about.html">About Us</a></li>
+				<li><a href="/" class="active">Bengaluru</a></li>
+				<li><a href="https://iudx-chandigarh-datastories.sirpi.co.in/">Chandigarh</a></li>
+				<li><a href="https://iudx-datastories.sirpi.co.in/">Vadodara</a></li>
+			</ul>
+		</div>
+
+		<div id="hero">
+			<div data-aos="fade-up" class="fontpoppins fontdarkblue">
+				<div>
+					<span class="heroheader">
+						<div class="herocontent">
+							Want to know more about ambulances in the city of Bengaluru, Karnataka in
+							India ?
+						</div>
+						<br>
+						<span style="font-size:max(3.5vw,27px);font-weight: 800;"> Welcome to </span> <br>
+						<span style="font-size:max(3.0vw,21px);font-weight: 800;"> Bengaluru Ambulance Data Stories
+						</span> <br>
+						<button class="hero-button" onclick="scrollWin(0,100)">Read Story!</button>
+				</div>
+			</div>
+			<div>
+				<img alt="hospital" src="assets/images/hospital_image_landing_page.png" class="heroimg">
+			</div>
+		</div>
+	</div>
+
+	<!-- Map bagckground and amulance container -->
+	<div id="section1">
+		<div class="road"
+			style="background-image: url(/assets/images/main\ road\ w\ crossing.svg);background-position: center; width: 100vw;/* height: 430rem; */ background-repeat: repeat-y;">
+			<div class="relative">
+				<img alt="Ambulance" class="ambulance" src="assets/images/ambulance car.svg">
+			</div>
+
+			<div id="ambulancedatastories">
+
+				<div data-aos="zoom-in-right" data-aos-anchor-placement="top-center" class="numberpopup">
+					<!-- 1 -->
+					<img alt="Number circle 1" src="/assets/images/number_circles/1_number.png" class="roundimg">
+					<img alt="black circle 1" src="/assets/images/number_circles/black_circles/blk_circle_1.png" class="hoverimg">
+				</div>
+				<div data-aos="fade-up" data-aos-duration="3000" data-aos-anchor-placement="top-center"
+					class="storypopup opacityfull">
+
+					<div class="storypopup_heading">
+						<span class="font-larger">Road accidents in India</span>
+						<br>
+						<span class="fontdarkblue font-large">2018 - 2021</span>
+					</div> <br>
+
+					<canvas style="height: 6rem;width: 8rem;" id="myChart"></canvas> <br>
+
+					<div class="cardfooter">
+						<!-- <h3>KEY INSIGHTS :</h3> -->
+						<ul>
+							<li> Lakhs of people die due to road accidents each year </li>
+							<li>In 2020, the country witnessed a drop in accident count attributed to Covid</li>
+						</ul>
+						<a href="https://morth.nic.in/sites/default/files/RA_2021_Compressed.pdf" target="_blank">
+							<p class="cardfooterlink">Source <i class="fa fa-external-link" aria-hidden="true"></i></p>
+						</a>
+					</div>
+				</div>
+				<div data-aos="zoom-in-right" data-aos-anchor-placement="top-center" class="numberpopup">
+					<!-- 2 -->
+					<img alt="Number circle 2" src="/assets/images/number_circles/2_number.png" class="roundimg">
+					<img alt="black circle 2" src="/assets/images/number_circles/black_circles/blk_circle_2.png" class="hoverimg">
+				</div>
+				<div data-aos="fade-up" data-aos-duration="3000" data-aos-anchor-placement="top-center"
+					class="storypopup opacityfull">
+
+					<div class="storypopup_heading">
+
+						<span class="font-larger">Fatalities</span>
+						<br>
+						<span class="fontdarkblue font-large">Karnataka vs top 5 and bottom 5 states</span>
+
+						<br>
+					</div> <br>
+
+					<canvas style="height: 5rem;width: 8rem;" id="myChart3"></canvas> <br>
+
+					<div class="cardfooter">
+						<!-- <h3>KEY INSIGHTS :</h3> -->
+						<ul>
+							<li>In Karnataka, in 2021, one person died for every three and half accidents</li>
+						</ul>
+						<a href="https://morth.nic.in/sites/default/files/RA_2021_Compressed.pdf" target="_blank">
+							<p class="cardfooterlink">Source <i class="fa fa-external-link" aria-hidden="true"></i></p>
+						</a>
+					</div>
+				</div>
+
+				<div data-aos="zoom-in-right" data-aos-anchor-placement="top-center" class="numberpopup">
+					<!-- 3 -->
+					<img alt="Number circle 3" src="/assets/images/number_circles/3_number.png" class="roundimg">
+					<img alt="black circle 3" src="/assets/images/number_circles/black_circles/blk_circle_3.png" class="hoverimg">
+				</div>
+				<div data-aos="fade-up" data-aos-duration="3000" data-aos-anchor-placement="top-center"
+					class="storypopup">
+					<div class="storypopup_heading font-large">
+
+						According to <span class="fontred font-larger">WHO,</span> <br>
+						Ambulance requirement is <br>
+					</div>
+					<div>
+						<div style="display:flex;margin-top:2rem;">
+							<img alt="1 per 1 lakh people" src="/assets/images/story_card/story_card1.svg"
+								href="/assets/images/story_card/story_card1.svg" title="1 per 1 lakh people">
+						</div>
+					</div>
+					<div class="cardfooter">
+						<a href="https://nhsrcindia.org/sites/default/files/2021-02/Emergency_Medical_Service_in_India_Concept_Paper.pdf"
+							target="_blank">
+							<p class="cardfooterlink">Source <i class="fa fa-external-link" aria-hidden="true"></i></p>
+						</a>
+					</div>
+				</div>
+
+				<div data-aos="zoom-in-right" data-aos-anchor-placement="top-center" class="numberpopup">
+					<!-- 4 -->
+					<img alt="Number circle 4" src="/assets/images/number_circles/4_number.png" class="roundimg">
+					<img alt="black circle 4" src="/assets/images/number_circles/black_circles/blk_circle_4.png" class="hoverimg">
+				</div>
+				<div data-aos="fade-up" data-aos-duration="3000" data-aos-anchor-placement="top-center"
+					class="storypopup">
+					<div class="storypopup_heading">
+						<span class="font-larger">Total ambulances</span> <br>
+						<span class="font-larger">covered under National Ambulance Services (NAS)</span> <br>
+						<span class="font-large fontdarkblue"> Under
+							108 emergency response and 102 basic patient
+							transport</span>
+					</div>
+					<div>
+						<div style="display:flex;margin-top:2rem;justify-content: center;">
+							<span>
+								<span class="fontred font-larger4">22,115</span>
+							</span> <br>
+						</div>
+						<div
+							style="display: flex;flex-wrap:no-wrap;text-align: center;justify-content: space-evenly;padding:0.2rem;">
+							<div style="margin:0.2rem;"> <span class="font-large">1,856 </span><br><span
+									class="font-small">Advanced Life Support
+									(ALS) </span></div>
+							<div style="margin:0.2rem;"> <span class="font-large">16,859</span> <br><span
+									class="font-small">Basic Life Support
+									(BLS)</span></div>
+							<div style="margin:0.2rem;"> <span class="font-large">3,253</span> <br><span
+									class="font-small">Patient Transport
+									Vehicle (PTV)</span></div>
+						</div>
+						<div
+							style="display: flex;flex-wrap:no-wrap;text-align: center;justify-content: space-evenly;padding:0.2rem;">
+							<div style="margin:0.2rem;"> <span class="font-large">17</span> <br><span
+									class="font-small">Boat</span></div>
+							<div style="margin:0.2rem;"> <span class="font-large">131</span> <br><span
+									class="font-small">Bike</span></div>
+
+						</div>
+					</div>
+
+
+					<div class="cardfooter">
+						<a href="https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=1887285" target="_blank">
+							<p class="cardfooterlink">Source <i class="fa fa-external-link" aria-hidden="true"></i></p>
+						</a>
+					</div>
+				</div>
+
+
+				<div data-aos="zoom-in-right" data-aos-anchor-placement="top-center" class="numberpopup">
+					<!-- 5 -->
+					<img alt="Number circle 5" src="/assets/images/number_circles/5_number.png" class="roundimg">
+					<img alt="black circle 5" src="/assets/images/number_circles/black_circles/blk_circle_5.png" class="hoverimg">
+				</div>
+				<div data-aos="fade-up" data-aos-duration="3000" data-aos-anchor-placement="top-center"
+					class="storypopup">
+					<div class="storypopup_heading">
+						<div class="fontdarkblue font-large"
+							style="text-align: center;font-size:max(2.5vw,18px);font-weight: 800;">Bengaluru, Karnataka
+						</div>
+					</div>
+					<div>
+						<div class="flexcard2">
+							<div>
+								<div class="fontred font-larger4">1.1 </div>
+								<div> crore</div> <br>
+								<div class="fontdarkblue font-large"
+									style="font-size:max(1.5vw,14px);font-weight: 800;">Population</div>
+							</div>
+							<div>
+								<div class="fontred font-larger4">741 </div>
+								<div> sq km</div> <br>
+								<div class="fontdarkblue font-large"
+									style="font-size:max(1.5vw,14px);font-weight: 800;">Area</div>
+							</div>
+							<div>
+								<div class="fontred font-larger4">45 </div>
+								<div>count</div> <br>
+								<div class="fontdarkblue font-large"
+									style="font-size:max(1.5vw,14px);font-weight: 800;">Ambulances <br> (public)</div>
+							</div>
+						</div>
+					</div>
+					<div class="cardfooter">
+						<!-- <h3>KEY INSIGHTS :</h3> -->
+						<ul>
+							<li>1 public ambulance per 4 lakh people</li>
+						</ul>
+
+						<a href="https://www.census2011.co.in/census/city/448-bangalore.html" target="_blank">
+							<p class="cardfooterlink">Source <i class="fa fa-external-link" aria-hidden="true"></i></p>
+						</a>
+					</div>
+				</div>
+
+				<div data-aos="zoom-in-right" data-aos-anchor-placement="top-center" class="numberpopup">
+					<!-- 6 -->
+					<img alt="Number circle 6" src="/assets/images/number_circles/6_number.png" class="roundimg">
+					<img alt="black circle 6" src="/assets/images/number_circles/black_circles/blk_circle_6.png" class="hoverimg">
+				</div>
+				<div data-aos="fade-up" data-aos-duration="3000" data-aos-anchor-placement="top-center"
+					class="storypopup opacityfull">
+					<p style="margin: 0;padding: 0;margin-right: auto;" class="font-larger">Location of
+						hospitals in Bengaluru</p>
+					<br>
+					<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless"
+						src="https://bengaluru-nearest-hospital.sirpi.co.in/" height="525" width="100%"></iframe> <br>
+					<div class="cardfooter">
+						<!-- <h3>KEY INSIGHTS :</h3> -->
+						<ul>
+							<li>There are ~108 hospitals serving 1.1 crore people in Bengaluru</li>
+						</ul>
+						<a href="https://www.google.com/maps/search/hospital+bengaluru/@13.0229461,77.5386498,13z"
+							target="_blank">
+							<p class="cardfooterlink">Source <i class="fa fa-external-link" aria-hidden="true"></i></p>
+						</a>
+					</div>
+				</div>
+
+
+				<div data-aos="zoom-in-right" data-aos-anchor-placement="top-center" class="numberpopup">
+					<!-- 7 -->
+					<img alt="Number circle 7" src="/assets/images/number_circles/7_number.png" class="roundimg">
+					<img alt="black circle 7" src="/assets/images/number_circles/black_circles/blk_circle_7.png" class="hoverimg">
+				</div>
+
+				<div data-aos="fade-up" data-aos-duration="3000" data-aos-anchor-placement="top-center"
+					class="storypopup opacityfull">
+					<div class="storypopup_heading">
+						<span class="font-larger">Routemap of all
+							ambulances</span>
+						<br>
+						<span class="fontdarkblue font-large">February 2023</span>
+					</div> <br>
+
+					<br>
+
+					<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless"
+						src="assets\plots\bengaluru-route-trace-ambulance.html" height="300" width="500"></iframe> <br>
+					<div class="cardfooter">
+						<!-- <h3>KEY INSIGHTS :</h3> -->
+						<ul>
+							<li>The city is uniformly covered with respect to ambulance accessibility
+							</li>
+						</ul>
+						<a href="https://catalogue.iudx.org.in/bengaluru/dataset/datakaveri.org-fb0924bef803e220e0d0bc8ceaf0a1f999442f32-rs.iudx.org.in-bengaluru-emergency-vehicles"
+							target="_blank">
+							<p class="cardfooterlink">Source<i class="fa fa-external-link" aria-hidden="true"></i></p>
+						</a>
+					</div>
+				</div>
+
+				<div data-aos="zoom-in-right" data-aos-anchor-placement="top-center" class="numberpopup">
+					<!-- 8 -->
+					<img alt="Number circle 8" src="/assets/images/number_circles/8_number.png" class="roundimg">
+					<img alt="black circle 8" src="/assets/images/number_circles/black_circles/blk_circle_8.png" class="hoverimg">
+				</div>
+				<div data-aos="fade-up" data-aos-duration="3000" data-aos-anchor-placement="top-center"
+					class="storypopup opacityfull">
+					<div class="storypopup_heading">
+						<span class="font-larger">Ambulance
+							activity</span>
+						<br>
+						<span class="fontdarkblue font-large">February 2023</span>
+					</div> <br>
+					<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless"
+						src="assets/maps/bengaluru_heatmap_stopped4.html" height="300" width="500"></iframe> <br>
+
+					<img alt="Ambulance activity" src="assets\images\legendcolors.png" style="margin-top: 1rem;">
+					<div class="cardfooter">
+						<h3>TOP ACTIVE REGIONS :</h3>
+						<ul>
+							<li>Bannerughatta</li>
+							<li>Nelamangla</li>
+							<li>Chikkabanavara</li>
+							<li>Shivajinagar</li>
+							<li>KR Market</li>
+						</ul>
+						<a href="https://catalogue.iudx.org.in/bengaluru/dataset/datakaveri.org-fb0924bef803e220e0d0bc8ceaf0a1f999442f32-rs.iudx.org.in-bengaluru-emergency-vehicles"
+							target="_blank">
+							<p class="cardfooterlink">Source<i class="fa fa-external-link" aria-hidden="true"></i>
+							</p>
+						</a>
+					</div>
+				</div>
+
+
+				<div data-aos="zoom-in-right" data-aos-anchor-placement="top-center" class="numberpopup">
+					<!-- 9 -->
+					<img alt="Number circle 9" src="/assets/images/number_circles/9_number.png" class="roundimg">
+					<img alt="black circle 9" src="/assets/images/number_circles/black_circles/blk_circle_9.png" class="hoverimg">
+				</div>
+				<div data-aos="fade-up" data-aos-duration="3000" data-aos-anchor-placement="top-center"
+					class="storypopup opacityfull">
+					<div class="storypopup_heading">
+
+						<span class="font-larger">Vehicles activity</span>
+
+						<br>
+						<span class="fontdarkblue font-large">February 2023</span>
+					</div> <br>
+					<img alt="Vehicles activity" src="assets/images/story_card/bengaluru-ray-shader-plot.jpeg"
+							href="assets/images/story_card/bengaluru-ray-shader-plot.jpeg" class="img-popout"
+							title=""> <br>
+					<div class="cardfooter">
+						<h3>TOP ACTIVE REGIONS :</h3>
+						<ul>
+							<li>Nagawara</li>
+							<li>Koramangla</li>
+							<li>Banashankari</li>
+							<li>Chikkabidarakallu</li>
+						</ul>
+						<a href="https://catalogue.iudx.org.in/bengaluru/dataset/datakaveri.org-fb0924bef803e220e0d0bc8ceaf0a1f999442f32-rs.iudx.org.in-bengaluru-emergency-vehicles"
+							target="_blank">
+							<p class="cardfooterlink">Source<i class="fa fa-external-link" aria-hidden="true"></i>
+							</p>
+						</a>
+					</div>
+				</div>
+
+
+
+
+				<div data-aos="zoom-in-right" data-aos-anchor-placement="top-center" class="numberpopup">
+					<!-- 10 -->
+					<img alt="Number circle 10" src="/assets/images/number_circles/10_number.png" class="roundimg">
+					<img alt="black circle 10" src="/assets/images/number_circles/black_circles/blk_circle_10.png" class="hoverimg">
+				</div>
+				<div data-aos="fade-up" data-aos-duration="3000" data-aos-anchor-placement="top-center"
+					class="storypopup opacityfull">
+					<div class="storypopup_heading">
+						<span class="font-larger">Ambulance utilization : 48%</span>
+						<br>
+						<span class="fontdarkblue font-large">February 2023</span>
+					</div>
+					<canvas style="height: 6rem;width: 8rem;" id="myChart4"></canvas>
+					<div class="cardfooter">
+						<!-- <h3>KEY INSIGHTS :</h3> -->
+						<ul>
+							<li>Approximately 1/3<sup>rd</sup> of the time, ambulances were utilized</li>
+						</ul>
+						<a href="https://catalogue.iudx.org.in/bengaluru/dataset/datakaveri.org-fb0924bef803e220e0d0bc8ceaf0a1f999442f32-rs.iudx.org.in-bengaluru-emergency-vehicles"
+							target="_blank">
+							<p class="cardfooterlink">Source<i class="fa fa-external-link" aria-hidden="true"></i></p>
+						</a>
+					</div>
+				</div>
+
+				<div data-aos="zoom-in-right" data-aos-anchor-placement="top-center" class="numberpopup">
+					<!-- 11 -->
+					<img alt="Number circle 11" src="/assets/images/number_circles/11_number.png" class="roundimg">
+					<img alt="black circle 11" src="/assets/images/number_circles/black_circles/blk_circle_11.png" class="hoverimg">
+				</div>
+				<div data-aos="fade-up" data-aos-duration="3000" data-aos-anchor-placement="top-center"
+					class="storypopup opacityfull">
+					<div class="storypopup_heading">
+
+						<span class="font-larger">Distance travelled by ambulances</span>
+						<br>
+						<span class="fontdarkblue font-large">February 2023</span>
+					</div>
+
+					<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless"
+						src="assets/plots/calendar-simple.html" height="300" width="400"></iframe>
+					<div class="cardfooter">
+						<!-- <h3>KEY INSIGHTS :</h3> -->
+						<ul>
+							<li>Highest activity was observed on 13th February where ambulances covered 21,506 kms</li>
+						</ul>
+
+						<a href="https://catalogue.iudx.org.in/bengaluru/dataset/datakaveri.org-fb0924bef803e220e0d0bc8ceaf0a1f999442f32-rs.iudx.org.in-bengaluru-emergency-vehicles"
+							target="_blank">
+							<p class="cardfooterlink">Source<i class="fa fa-external-link" aria-hidden="true"></i></p>
+						</a>
+					</div>
+				</div>
+
+
+				<div data-aos="zoom-in-right" data-aos-anchor-placement="top-center" class="numberpopup">
+					<!-- 12 -->
+					<img alt="Number circle 12" src="/assets/images/number_circles/12_number.png" class="roundimg">
+					<img alt="black circle 12" src="/assets/images/number_circles/black_circles/blk_circle_12.png" class="hoverimg">
+				</div>
+				<div data-aos="fade-up" data-aos-duration="3000" data-aos-anchor-placement="top-center"
+					class="storypopup opacityfull">
+					<div class="storypopup_heading">
+						<span class="font-larger">Daily ambulance activity over 24 hours</span>
+						<br>
+						<span class="fontdarkblue font-large">February 2023</span>
+					</div> <br>
+
+					<canvas style="height: 6rem;width: 8rem;" id="myChart6"></canvas> <br>
+					<div class="cardfooter">
+						<ul>
+							<li>The ambulances usage is evenly distributed</li>
+						</ul>
+						<a href="https://catalogue.iudx.org.in/bengaluru/dataset/datakaveri.org-fb0924bef803e220e0d0bc8ceaf0a1f999442f32-rs.iudx.org.in-bengaluru-emergency-vehicles"
+							target="_blank">
+							<p class="cardfooterlink">Source<i class="fa fa-external-link" aria-hidden="true"></i></p>
+						</a>
+					</div>
+				</div>
+
+				<div data-aos="zoom-in-right" data-aos-anchor-placement="top-center" class="numberpopup">
+					<!-- 13 -->
+					<img alt="Number circle 13" src="/assets/images/number_circles/13_number.png" class="roundimg">
+					<img alt="black circle 13" src="/assets/images/number_circles/black_circles/blk_circle_13.png" class="hoverimg">
+				</div>
+				<div data-aos="fade-up" data-aos-duration="3000" data-aos-anchor-placement="top-center"
+					class="storypopup opacityfull">
+					<div class="storypopup_heading">
+						<span class="font-larger">Count of ambulance vs date</span>
+						<br>
+						<span class="fontdarkblue font-large">February 2023</span>
+					</div>
+
+					<canvas style="height: 6rem;width: 8rem;" id="myChart7"></canvas>
+					<div class="cardfooter">
+						<ul>
+							<li>We find that the ambulances are evenly used (42 - 44) per day</li>
+							<li>The ambulance sensors have been implemented this month</li>
+						</ul>
+						<a href="https://catalogue.iudx.org.in/bengaluru/dataset/datakaveri.org-fb0924bef803e220e0d0bc8ceaf0a1f999442f32-rs.iudx.org.in-bengaluru-emergency-vehicles"
+							target="_blank">
+							<p class="cardfooterlink">Source<i class="fa fa-external-link" aria-hidden="true"></i></p>
+						</a>
+					</div>
+				</div>
+
+				<div data-aos="zoom-in-right" data-aos-anchor-placement="top-center" class="numberpopup">
+					<!-- 14 -->
+					<img alt="Number circle 14" src="/assets/images/number_circles/14_number.png" class="roundimg">
+					<img alt="black circle 14" src="/assets/images/number_circles/black_circles/blk_circle_14.png" class="hoverimg">
+				</div>
+
+				<div data-aos="fade-up" data-aos-duration="3000" data-aos-anchor-placement="top-center"
+					class="storypopup opacityfull">
+					<div class="storypopup_heading">
+						<span class="font-larger">Ambulance trip statistics</span>
+						<br>
+						<span class="fontdarkblue font-large">February 2023</span>
+					</div> <br>
+
+					<br>
+
+					<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless"
+						src="assets/plots/Top 5 Ambulances Trip Summary Sheet bangalore1.html" height="330" width="600"></iframe> <br>
+					<div class="cardfooter">
+						<!-- <h3>KEY INSIGHTS :</h3> -->
+						
+						<a href="https://catalogue.iudx.org.in/bengaluru/dataset/datakaveri.org-fb0924bef803e220e0d0bc8ceaf0a1f999442f32-rs.iudx.org.in-bengaluru-emergency-vehicles"
+							target="_blank">
+							<p class="cardfooterlink">Source<i class="fa fa-external-link" aria-hidden="true"></i></p>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="footer">
+		<div>
+			<div> <img alt="IUDX logo" class="navlogofooter" src="assets/images/iudx_logo_bw.png"></div>
+			<br><br><br>
+			<div>&copy; 2023 All rights reserved</div>
+		</div>
+		<div>
+			<img alt="hospital top view" class="footerhospitaltopview" src="/assets/images/hospital top view.svg">
+		</div>
+		<div>
+			<h3>India Urban Data Exchange</h3>
+			IUDX is a transformative initiative of the Ministry of Housing and Urban Affairs, Government of
+			India to
+			provide a data exchange platform to Indian cities. IUDX serves as a seamless interface for data
+			providers
+			and data users, including ULBs, to share, request, and access datasets related to cities, urban
+			governance,
+			and urban service delivery. The platform has been developed by the Smart Cities Mission and is
+			implemented
+			by the Indian Institute of Science (IISc), Bengaluru.
+			<br>
+			<div style="float: right;"></span>
+				<a href="https://iudx.org.in/" target="_blank"><i class="fa fa-solid fa-link fa-white"></i></a>
+				<a href="https://github.com/datakaveri" target="_blank"><i
+						class="fa fa-brands fa-github fa-white"></i></a>
+				<a href="https://twitter.com/IndiaIudx" target="_blank"><i
+						class="fa fa-brands fa-twitter fa-white"></i></a>
+				<a href="mailto:support@iudx.org.in" target="_blank"><i class="fa fa-envelope fa-white"></i></a>
+				<a href="https://www.linkedin.com/company/iudx/" target="_blank"><i
+						class=" fa fa-brands fa-linkedin fa-white"></i></a>
+				<a href="https://www.facebook.com/India-Urban-Data-Exchange-114855197042929" target="_blank"><i
+						class=" fa fa-brands fa-facebook fa-white"></i></a>
+				<a href="https://www.youtube.com/channel/UCK9oI1VtbKnEe7cJIt_eUFA?view_as=subscriber" target="_blank"><i
+						class=" fa fa-brands fa-youtube fa-white"></i></a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Scipts load at end-->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+	<script src="assets/js/script.js"></script>
+
+	<!-- Magnific Popup core JS file -->
+	<script src="./assets/magnific-popup/jquery.magnific-popup.js"></script>
+	<!-- Magnific popup initalize -->
+	<script src="/assets/js/image-popout.js"></script>
+	<script src="./assets/chartsjs/chart1.js">
+	</script>
+	<script src="./assets/chartsjs/chart2.js">
+	</script>
+	<script src="./assets/chartsjs/chart3.js">
+	</script>
+	<script src="./assets/chartsjs/chart4.js">
+	</script>
+	<script src="./assets/chartsjs/chart5.js">
+	</script>
+	<script src="./assets/chartsjs/chart6.js">
+	</script>
+	<script src="./assets/chartsjs/chart7.js">
+	</script>
+</body>
+
+</html>
