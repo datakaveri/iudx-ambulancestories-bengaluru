@@ -39,3 +39,4 @@ jobs:
       image: 'bengaluru-data-stories'
       from: 'beta'
     secrets: inherit
+    
