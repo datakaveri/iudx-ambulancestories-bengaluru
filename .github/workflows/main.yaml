@@ -20,7 +20,7 @@ jobs:
     uses: sirpi-io/bengaluru-data-stories/.github/workflows/versions.yml@dev
     with:
       env: 'dev'
-      image: 'iudx-bengaluru-datastories'
+      image: 'bengaluru-data-stories'
       from: 'local'
     secrets: inherit
   beta:
@@ -28,7 +28,7 @@ jobs:
     uses: sirpi-io/bengaluru-data-stories/.github/workflows/versions.yml@beta
     with:
       env: 'beta'
-      image: 'iudx-bengaluru-datastories'
+      image: 'bengaluru-data-stories'
       from: 'dev'
     secrets: inherit
   prod:
@@ -36,6 +36,6 @@ jobs:
     uses: sirpi-io/bengaluru-data-stories/.github/workflows/versions.yml@prod
     with:
       env: 'prod'
-      image: 'iudx-bengaluru-datastories'
+      image: 'bengaluru-data-stories'
       from: 'beta'
     secrets: inherit
