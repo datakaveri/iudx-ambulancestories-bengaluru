@@ -4,14 +4,7 @@ on:
   push:
     branches:
       - dev
-      - beta
-      - prod
-  pull_request:
-    branches:
-      - dev
-      - beta
-      - prod
-    types: [ closed ]      
+      - prod     
   workflow_dispatch:    
   
 jobs:
