@@ -23,20 +23,12 @@ jobs:
       image: 'bengaluru-data-stories'
       from: 'local'
     secrets: inherit
-  beta:
-    if: ${{ github.ref == 'refs/heads/beta' }}
-    uses: sirpi-io/bengaluru-data-stories/.github/workflows/versions.yml@beta
-    with:
-      env: 'beta'
-      image: 'bengaluru-data-stories'
-      from: 'dev'
-    secrets: inherit
   prod:
     if: ${{ github.ref == 'refs/heads/prod' }}
     uses: sirpi-io/bengaluru-data-stories/.github/workflows/versions.yml@prod
     with:
       env: 'prod'
       image: 'bengaluru-data-stories'
-      from: 'beta'
+      from: 'local'
     secrets: inherit
     
