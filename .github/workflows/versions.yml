@@ -15,7 +15,7 @@ on:
 env:
   USERNAME: ${{ secrets.DOCKERUSERNAME }}
   PASSWORD: ${{ secrets.DOCKERPASSWORD }}
-  GIT_TOKEN: ${{ secrets.DEVOPS_TOKEN }}
+  GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
   ARGO_PASS: ${{ secrets.ARGO_PASS }}
   ARGO_URL: ${{ secrets.ARGO_URL }}
   VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
