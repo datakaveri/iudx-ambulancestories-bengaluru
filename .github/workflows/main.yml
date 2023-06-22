@@ -10,7 +10,7 @@ on:
 jobs:
   dev:
     if: ${{ github.ref == 'refs/heads/dev' }}
-    uses: sirpi-io/bengaluru-data-stories/.github/workflows/versions.yml@dev
+    uses: sirpi-io/iudx-bengaluru-data-stories/.github/workflows/versions.yml@dev
     with:
       env: 'dev'
       image: 'bengaluru-data-stories'
@@ -18,7 +18,7 @@ jobs:
     secrets: inherit
   prod:
     if: ${{ github.ref == 'refs/heads/prod' }}
-    uses: sirpi-io/bengaluru-data-stories/.github/workflows/versions.yml@prod
+    uses: sirpi-io/iudx-bengaluru-data-stories/.github/workflows/versions.yml@prod
     with:
       env: 'prod'
       image: 'bengaluru-data-stories'
