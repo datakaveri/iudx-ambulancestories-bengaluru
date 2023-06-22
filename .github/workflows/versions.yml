@@ -134,4 +134,4 @@ jobs:
           --auto-prune \
           --upsert
           argocd app sync $IMAGE_NAME-$ENV --async --force --prune --grpc-web || true
-          
+        
