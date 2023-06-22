@@ -100,7 +100,7 @@ jobs:
           
           
           
-          vault kv get -address="https://vault.sirpi.co.in" -field=bengaluru-data-stories-dockerfile kv/projects/$IMAGE_NAME > Dockerfile
+          vault kv get -address="https://vault.sirpi.co.in" -field=datastories-dockerfile kv/projects/$IMAGE_NAME > Dockerfile
           
           
           echo "$PASSWORD" | docker login -u $USERNAME --password-stdin
