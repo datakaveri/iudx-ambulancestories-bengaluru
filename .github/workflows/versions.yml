@@ -24,7 +24,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: sirpi
     strategy:
       max-parallel: 4
       matrix:
@@ -70,7 +70,7 @@ jobs:
       output1: ${{ steps.versioning.outputs.VERSION }}    
 
   docker:
-    runs-on: ubuntu-latest
+    runs-on: sirpi
     needs: [build]
     strategy:
       max-parallel: 4
