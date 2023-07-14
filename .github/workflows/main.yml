@@ -1,0 +1,27 @@
+name: Trigger ArgoCD & Versioning  
+
+on:
+  push:
+    branches:
+      - dev
+      - prod     
+  workflow_dispatch:    
+  
+jobs:
+  dev:
+    if: ${{ github.ref == 'refs/heads/dev' }}
+    uses: sirpi-io/bengaluru-data-stories/.github/workflows/versions.yml@dev
+    with:
+      env: 'dev'
+      image: 'iudx-bengaluru-datastories'
+      from: 'local'
+    secrets: inherit
+  prod:
+    if: ${{ github.ref == 'refs/heads/prod' }}
+    uses: sirpi-io/bengaluru-data-stories/.github/workflows/versions.yml@prod
+    with:
+      env: 'prod'
+      image: 'iudx-bengaluru-datastories'
+      from: 'local'
+    secrets: inherit
+    
