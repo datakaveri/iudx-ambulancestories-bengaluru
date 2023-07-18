@@ -1,0 +1,25 @@
+name: Create CI/CD pipeline
+
+on:
+  push:
+    branches:
+      - prod
+      
+jobs:
+  CI:
+    uses: sirpi-io/devops_ms/.github/workflows/build.yml@common-files
+    with:
+      repo_name: ${{ github.repository }}
+      branch_name: ${{ github.ref_name }}
+      commit_msg: ${{ github.event.head_commit.message }}
+    secrets: inherit
+    
+    
+  CD:
+    needs: [CI]
+    uses: sirpi-io/devops_ms/.github/workflows/deploy.yml@common-files
+    with:
+      repo_name: ${{ github.repository }}
+      branch_name: ${{ github.ref_name }}
+      commit_msg: ${{ github.event.head_commit.message }}
+    secrets: inherit
