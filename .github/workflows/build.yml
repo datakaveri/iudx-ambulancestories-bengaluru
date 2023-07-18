@@ -1,4 +1,4 @@
-name: Create CI/CD pipeline
+name: Create CI/CD pipeline.
 
 on:
   push:
