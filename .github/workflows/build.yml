@@ -7,7 +7,7 @@ on:
       
 jobs:
   CI:
-    uses: sirpi-io/devops_ms/.github/workflows/build.yml@common-files
+    uses: datakaveri/iudx-sirpi-manifests/.github/workflows/build.yml@common-files
     with:
       repo_name: ${{ github.repository }}
       branch_name: ${{ github.ref_name }}
@@ -17,7 +17,7 @@ jobs:
     
   CD:
     needs: [CI]
-    uses: sirpi-io/devops_ms/.github/workflows/deploy.yml@common-files
+    uses: datakaveri/iudx-sirpi-manifests/.github/workflows/deploy.yml@common-files
     with:
       repo_name: ${{ github.repository }}
       branch_name: ${{ github.ref_name }}
